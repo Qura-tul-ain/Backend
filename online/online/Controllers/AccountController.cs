@@ -151,7 +151,10 @@ namespace online.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
+                var user = new ApplicationUser
+                { UserName = model.Username, Email = model.Email,
+                Cnic=model.Cnic,Adress=model.Adress,
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
