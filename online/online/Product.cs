@@ -11,15 +11,17 @@ namespace online
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Product
     {
         public int ImageId { get; set; }
+        public string Images { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
         public string ProductName { get; set; }
         public string ProductDescp { get; set; }
         public double BidAmount { get; set; }
         public System.DateTime AuctionDate { get; set; }
         public string Category { get; set; }
-        public byte[] Images { get; set; }
     }
 }

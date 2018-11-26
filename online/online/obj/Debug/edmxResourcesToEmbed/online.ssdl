@@ -57,8 +57,8 @@
     <Key>
       <PropertyRef Name="ImageId" />
     </Key>
-    <Property Name="ImageId" Type="int" Nullable="false" />
-    <Property Name="Images" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Images" Type="varchar(max)" />
     <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ProductDescp" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="BidAmount" Type="float" Nullable="false" />

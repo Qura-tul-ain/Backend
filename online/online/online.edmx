@@ -62,8 +62,8 @@
           <Key>
             <PropertyRef Name="ImageId" />
           </Key>
-          <Property Name="ImageId" Type="int" Nullable="false" />
-          <Property Name="Images" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Images" Type="varchar(max)" />
           <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ProductDescp" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="BidAmount" Type="float" Nullable="false" />
@@ -227,12 +227,12 @@
             <PropertyRef Name="ImageId" />
           </Key>
           <Property Name="ImageId" Type="Int32" Nullable="false" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProductDescp" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BidAmount" Type="Double" Nullable="false" />
           <Property Name="AuctionDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Category" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Images" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -296,7 +296,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="onlineEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="onlineEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
@@ -326,7 +326,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities1">
+        <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities2">
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="onlineModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
@@ -385,8 +385,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="onlineModel.Product">
               <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="Images" ColumnName="Images" />
                 <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="ProductDescp" ColumnName="ProductDescp" />
                 <ScalarProperty Name="BidAmount" ColumnName="BidAmount" />

@@ -7,12 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using online;
+using System.IO;
+using online.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace online.Controllers
 {
     public class ProductsController : Controller
     {
-        private onlineEntities1 db = new onlineEntities1();
+        private onlineEntities2 db = new onlineEntities2();
 
         // GET: Products
         public ActionResult Index()
@@ -46,31 +49,37 @@ namespace online.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ImageId,ProductName,ProductDescp,BidAmount,AuctionDate,Category,Images")] Product product,HttpPostedFileBase image1)
+        public ActionResult Create(Product productss)
         {
-            try
-            {
-                if (ModelState.IsValid)
+            try {
+                string filename = Path.GetFileNameWithoutExtension(productss.ImageFile.FileName);
+                string extension = Path.GetExtension(productss.ImageFile.FileName);
+                filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                productss.Images = "~/images/" + filename;
+                filename = Path.Combine(Server.MapPath("~/images/"), filename);
+                productss.ImageFile.SaveAs(filename);
+
+                using (onlineEntities2 db = new onlineEntities2())
                 {
-                    product.Images = new byte[image1.ContentLength];
-                   image1.InputStream.Read(product.Images, 0, image1.ContentLength);
-                    db.Products.Add(product);
+                    if (db.Products.Any(x => x.ProductName == productss.ProductName))
+                    {
+                        ViewBag.DuplicateMessage = "Product Already exists";
+                        return View(productss);
+                    }
+
+
+                    db.Products.Add(productss);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-
-                }
-           
+                }                                                                                                                           
             }
-            catch
+            catch(Exception ex)
             {
-               
-            }
-            return View(product);
-        }
 
+            }
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Successful";
+            return View("Index");
+        }
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {

@@ -11,7 +11,9 @@ namespace online.Models
 
         
         public int ImageId { get; set; }
-        public byte[] Images { get; set; }
+
+        public string Images { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
         [Required]
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }

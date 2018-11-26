@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities1">
+  <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities2">
     <EntitySetMapping Name="AspNetRoles">
       <EntityTypeMapping TypeName="onlineModel.AspNetRole">
         <MappingFragment StoreEntitySet="AspNetRoles">
@@ -59,8 +59,8 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="onlineModel.Product">
         <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="Images" ColumnName="Images" />
           <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="ProductDescp" ColumnName="ProductDescp" />
           <ScalarProperty Name="BidAmount" ColumnName="BidAmount" />

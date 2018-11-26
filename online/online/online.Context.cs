@@ -13,10 +13,10 @@ namespace online
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class onlineEntities1 : DbContext
+    public partial class onlineEntities2 : DbContext
     {
-        public onlineEntities1()
-            : base("name=onlineEntities1")
+        public onlineEntities2()
+            : base("name=onlineEntities2")
         {
         }
     
