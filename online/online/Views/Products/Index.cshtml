@@ -6,58 +6,49 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductDescp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BidAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuctionDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Images)
-        </th>
-        <th></th>
-    </tr>
+<table>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductDescp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BidAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AuctionDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Images)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ImageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ImageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ImageId })
-        </td>
+
+@foreach (var item in Model)
+{
+    double price = Convert.ToInt32(item.BidAmount);
+    <tr style="margin-bottom:20px">
+      <td style="margin-right:50px"> <img src="@Url.Content(item.Images)" height="350" width="250" /></td>
+        <td style="margin-left:50px"> @item.ProductName</td>
+        <td> <button type="button" onclick="location.href='@Url.Action("Register","Account")'" > details</button></td>
+        <td>@Html.ActionLink("Edit", "Edit", new { id = item.ImageId })</td>
     </tr>
 }
-    <!--dfgggdxxxxxxxxxxxx-->
+
 </table>
+
+
+
+    @*<div>
+        <h4>Product</h4>
+        <hr />
+
+
+        @foreach (var item in Model)
+        {
+            double price = Convert.ToInt32(item.BidAmount);
+            <div style="margin-bottom:30px">
+                <div>
+                    <div style="margin-bottom:20px">
+                        <img src="@Url.Content(item.Images)" height="350" width="250" />
+                    </div>
+                    <div class="caption">
+                        <h3>
+                            <a href="#">@item.ProductName</a>
+                        </h3>
+                        <h4>@price.ToString("F2")$</h4>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ImageId }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

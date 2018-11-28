@@ -20,8 +20,18 @@ namespace online.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
-        }
+            //    Product p = new Product();
+            //    using (onlineEntities2 db = new onlineEntities2())
+            //    {
+            //        p = db.Products.Where(x=>x.ImageId==id).FirstOrDefault();
+            //    }
+            //    return View(p);
+            List<Product> lists = new List<Product>();
+            lists = db.Products.ToList();
+        return View(lists);
+
+    }
+
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)
@@ -49,7 +59,7 @@ namespace online.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product productss)
+        public ActionResult Create(ProductViewModel productss)
         {
             try {
                 string filename = Path.GetFileNameWithoutExtension(productss.ImageFile.FileName);
@@ -66,9 +76,17 @@ namespace online.Controllers
                         ViewBag.DuplicateMessage = "Product Already exists";
                         return View(productss);
                     }
+                    Product p = new Product();
+                    p.ProductName = productss.ProductName;
+                    p.ProductDescp = productss.ProductDescp;
+                    p.ImageId = productss.ImageId;
+                    p.Images = productss.Images;
+                    p.Category = productss.Category;
+                    p.BidAmount = productss.BidAmount;
+                    p.AuctionDate = productss.AuctionDate;
 
 
-                    db.Products.Add(productss);
+                    db.Products.Add(p);
                     db.SaveChanges();
                 }                                                                                                                           
             }

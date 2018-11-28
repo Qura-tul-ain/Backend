@@ -15,8 +15,11 @@ namespace online.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        onlineEntities2 db = new onlineEntities2();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public string AdEmail = "Admin@gmail.com";
+        public string AdminPass = "Admin-123";
 
         public AccountController()
         {
@@ -72,6 +75,10 @@ namespace online.Controllers
             {
                 return View(model);
             }
+            if (AdEmail==model.Email && AdminPass ==model.Password )
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -79,7 +86,7 @@ namespace online.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return View("Register","Account");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -89,6 +96,19 @@ namespace online.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+
+
+            //using (onlineEntities2 db = new onlineEntities2())
+            //{
+            //    if(db.AspNetUsers.Any(x=>x.Email == model.Email && x.PasswordHash==model.Password))
+            //    {
+            //        return RedirectToLocal(returnUrl);
+            //        ////return RedirectToAction("Index", "Home");
+            //    }
+            //    //ViewBag.LoginErrorMessage = "Invalid Attempt";
+            //    ModelState.AddModelError("", "Invalid login attempt.");
+            //    return View("Login", model);
+            //}
         }
 
         //
