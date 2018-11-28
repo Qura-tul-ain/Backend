@@ -96,7 +96,7 @@ namespace online.Controllers
             }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Successful";
-            return View("Index");
+            return RedirectToAction("Index");
         }
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
