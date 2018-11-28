@@ -155,6 +155,15 @@ namespace online.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Display()
+        {
+            List<Product> p = new List<Product>();
+            Product p1 = new Product();
+            p = db.Products.Where(x => x.Category == "2").ToList();
+            return View(p);
+          
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
