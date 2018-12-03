@@ -12,12 +12,13 @@ namespace online
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserRole
+    public partial class Feedbackss
     {
-        public string UserId { get; set; }
-        public string RoleId { get; set; }
+        public int ID { get; set; }
+        public string Subject { get; set; }
+        public string Description { get; set; }
+        public string FK_ID { get; set; }
     
-        public virtual AspNetRole AspNetRole { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
     }
 }

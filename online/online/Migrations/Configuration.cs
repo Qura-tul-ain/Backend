@@ -1,19 +1,20 @@
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
 namespace online.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<online.onlineEntities2>
-    {
+{
+   
+       internal sealed class Configuration : DbMigrationsConfiguration<online.onlineEntities2>
+       {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(online.onlineEntities2 context)
-        {
+       protected override void Seed(online.onlineEntities2 context)
+         {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -24,8 +25,9 @@ namespace online.Migrations
             //      new Person { FullName = "Andrew Peters" },
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-        }
-    }
-}
+               
+            
+         }
+       }
+} 
+   

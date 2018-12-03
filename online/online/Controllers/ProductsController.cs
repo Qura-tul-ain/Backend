@@ -29,7 +29,7 @@ namespace online.Controllers
             List<Product> lists = new List<Product>();
             lists = db.Products.ToList();
         return View(lists);
-
+		
     }
 
 
@@ -69,7 +69,7 @@ namespace online.Controllers
                 filename = Path.Combine(Server.MapPath("~/images/"), filename);
                 productss.ImageFile.SaveAs(filename);
 
-                using (onlineEntities2 db = new onlineEntities2())
+                using (onlineEntities2 db = new onlineEntities2 ())
                 {
                     if (db.Products.Any(x => x.ProductName == productss.ProductName))
                     {
