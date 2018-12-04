@@ -11,59 +11,70 @@
     <h4>Product</h4>
     <hr />
  
+    <dl>
+        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+    </dl>
     <dl class="dl-horizontal">
-        <dt align="center">
+        @*<dt align="center">
             <br />
             <br />
-            @*@Html.DisplayNameFor(model => model.Images)*@
-        </dt>
+            @Html.DisplayNameFor(model => model.Images)
+        </dt>*@
 
-        <dd align="center">
-            @*<img src="../Model.images" alt="ssdd" />*@
-            @*<img src="../../images/images (3)185802466.jpg" alt="ssdd">*@
-            <img src="@Url.Content(Model.Images)" />
-        </dd>
+       
 
-        <dt align="center">
+        @*<dt align="center">
             @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
+        </dt>*@
 
         <dd align="center">
             @Html.DisplayFor(model => model.ProductName)
         </dd>
 
-        <dt align="center">
+        @*<dt align="center">
             @Html.DisplayNameFor(model => model.ProductDescp)
-        </dt>
+        </dt>*@
 
         <dd align="center">
             @Html.DisplayFor(model => model.ProductDescp)
         </dd>
 
-        <dt align="center">
+        @*<dt align="center">
             @Html.DisplayNameFor(model => model.BidAmount)
-        </dt>
+        </dt>*@
 
         <dd align="center">
             @Html.DisplayFor(model => model.BidAmount)
         </dd>
 
-        <dt align="center">
+        @*<dt align="center">
             @Html.DisplayNameFor(model => model.AuctionDate)
-        </dt>
+        </dt>*@
 
         <dd align="center">
             @Html.DisplayFor(model => model.AuctionDate)
         </dd>
 
-        <dt align="center">
+        @*<dt align="center">
             @Html.DisplayNameFor(model => model.Category)
-        </dt>
+        </dt>*@
 
         <dd align="center">
             @Html.DisplayFor(model => model.Category)
         </dd>
-
+        <dd align="center">
+            @*<img src="../Model.images" alt="ssdd" />*@
+            @*<img src="../../images/images (3)185802466.jpg" alt="ssdd">*@
+            <img src="@Url.Content(Model.Images)" />
+        </dd>
+        <dd>
+    @Html.EditorFor(model => model.Images, new { htmlAttributes = new { @class = "form-control" } })
+</dd>
     </dl>
 </div>
 <p>

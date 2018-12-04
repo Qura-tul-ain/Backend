@@ -6,14 +6,14 @@ namespace online.Migrations
 
 {
    
-       internal sealed class Configuration : DbMigrationsConfiguration<online.onlineEntities2>
+       internal sealed class Configuration : DbMigrationsConfiguration<online.onlineEntities>
        {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-       protected override void Seed(online.onlineEntities2 context)
+       protected override void Seed(online.onlineEntities context)
          {
             //  This method will be called after migrating to the latest version.
 

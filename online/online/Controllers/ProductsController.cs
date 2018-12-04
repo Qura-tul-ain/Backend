@@ -15,7 +15,7 @@ namespace online.Controllers
 {
     public class ProductsController : Controller
     {
-        private onlineEntities2 db = new onlineEntities2();
+        private onlineEntities db = new onlineEntities();
 
         // GET: Products
         public ActionResult Index()
@@ -69,7 +69,7 @@ namespace online.Controllers
                 filename = Path.Combine(Server.MapPath("~/images/"), filename);
                 productss.ImageFile.SaveAs(filename);
 
-                using (onlineEntities2 db = new onlineEntities2 ())
+                using (onlineEntities db = new onlineEntities ())
                 {
                     if (db.Products.Any(x => x.ProductName == productss.ProductName))
                     {

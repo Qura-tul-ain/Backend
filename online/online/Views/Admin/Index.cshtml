@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    onlineEntities2 db = new onlineEntities2();
+    onlineEntities db = new onlineEntities();
     List<AspNetUser> lists = new List<AspNetUser>();
     lists = db.AspNetUsers.ToList();
 
@@ -13,28 +13,48 @@
 <div>
     <h4>AspNetUser</h4>
     <hr />
-    <dl class="dl-horizontal">
-        @foreach (AspNetUser a in lists)
-        {
-            @*<dt>
-                @Html.DisplayNameFor(model => a.Cnic)
-            </dt>*@
+  <table cellspacing="30" cellpadding="2" >
+      <tr>
+          <td> Name</td>
+          <td> Email</td>
+          <td> Cnic</td>
+          <td> Adress</td>
+      </tr>
 
-            <dd>
+@foreach (AspNetUser a in lists)
+{
+    <tr>
+        <td>
+            @a.UserName
+        </td>
+        <td>
+            @a.Email
+        </td>
+        <td>
+            @a.Cnic
+        </td>
+        <td>
+            @a.Adress
+        </td>
+    </tr>
+}
+
+  </table>
+        @*@foreach (AspNetUser a in lists)
+        {*@
+           
+         
+
+            @*<dd>
                 @a.Cnic
             </dd>
 
-            @*<dt>
-                @Html.DisplayNameFor(model => model.Adress)
-            </dt>*@
 
             <dd>
                 @a.Adress
             </dd>
 
-            @*<dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>*@
+        
 
             <dd>
                 @a.Email
@@ -46,9 +66,9 @@
                 @Html.DisplayNameFor(model => model.PhoneNumber)
             </dt>*@
 
-            <dd>
+            @*<dd>
                 @a.PhoneNumber
-            </dd>
+            </dd>*@
             
 
           
@@ -57,16 +77,12 @@
                 @Html.DisplayNameFor(model => model.UserName)
             </dt>*@
 
-            <dd>
+            @*<dd>
                 @a.UserName
-            </dd>
-        }
+            </dd>*@
+        @*}*@ 
 
-
-
-       
-
-    </dl>
+    
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

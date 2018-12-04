@@ -182,15 +182,15 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>online.tt</DependentUpon>
     </Compile>
+    <Compile Include="AspNetUserRole.cs">
+      <DependentUpon>online.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FeedbackssesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>online.tt</DependentUpon>
-    </Compile>
     <Compile Include="Feedbackss.cs">
       <DependentUpon>online.tt</DependentUpon>
     </Compile>
@@ -223,6 +223,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>online.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YourAmount.cs">
+      <DependentUpon>online.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

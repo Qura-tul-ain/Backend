@@ -12,13 +12,14 @@ namespace online
     using System;
     using System.Collections.Generic;
     
-    public partial class Feedbackss
+    public partial class YourAmount
     {
-        public string Subject { get; set; }
-        public string Description { get; set; }
-        public int ID { get; set; }
-        public string FK_ID { get; set; }
+        public double YourAmount1 { get; set; }
+        public int AmountId { get; set; }
+        public string Id { get; set; }
+        public int ImageId { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

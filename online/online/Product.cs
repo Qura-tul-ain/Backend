@@ -14,6 +14,12 @@ namespace online
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.YourAmounts = new HashSet<YourAmount>();
+        }
+    
         public int ImageId { get; set; }
         public string Images { get; set; }
         public string ProductName { get; set; }
@@ -21,5 +27,8 @@ namespace online
         public double BidAmount { get; set; }
         public System.DateTime AuctionDate { get; set; }
         public string Category { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YourAmount> YourAmounts { get; set; }
     }
 }

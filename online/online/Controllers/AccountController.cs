@@ -15,7 +15,7 @@ namespace online.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        onlineEntities2 db = new onlineEntities2();
+        onlineEntities db = new onlineEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         public string AdEmail = "Admin@gmail.com";
