@@ -1,0 +1,74 @@
+﻿@model online.AspNetUser
+
+@{
+    ViewBag.Title = "Index";
+    onlineEntities2 db = new onlineEntities2();
+    List<AspNetUser> lists = new List<AspNetUser>();
+    lists = db.AspNetUsers.ToList();
+
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>AspNetUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (AspNetUser a in lists)
+        {
+            @*<dt>
+                @Html.DisplayNameFor(model => a.Cnic)
+            </dt>*@
+
+            <dd>
+                @a.Cnic
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>*@
+
+            <dd>
+                @a.Adress
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>*@
+
+            <dd>
+                @a.Email
+            </dd>
+
+        
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>*@
+
+            <dd>
+                @a.PhoneNumber
+            </dd>
+            
+
+          
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>*@
+
+            <dd>
+                @a.UserName
+            </dd>
+        }
+
+
+
+       
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Details";
-    var im = @Model.Images;
 }
 
 <h2>Details</h2>
@@ -10,57 +9,52 @@
 <div>
     <h4>Product</h4>
     <hr />
- 
     <dl class="dl-horizontal">
-        <dt align="center">
-            <br />
-            <br />
-            @*@Html.DisplayNameFor(model => model.Images)*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Images)
         </dt>
 
-        <dd align="center">
-            @*<img src="../Model.images" alt="ssdd" />*@
-            @*<img src="../../images/images (3)185802466.jpg" alt="ssdd">*@
-            <img src="@Url.Content(Model.Images)" />
+        <dd>
+            @Html.DisplayFor(model => model.Images)
         </dd>
 
-        <dt align="center">
+        <dt>
             @Html.DisplayNameFor(model => model.ProductName)
         </dt>
 
-        <dd align="center">
+        <dd>
             @Html.DisplayFor(model => model.ProductName)
         </dd>
 
-        <dt align="center">
+        <dt>
             @Html.DisplayNameFor(model => model.ProductDescp)
         </dt>
 
-        <dd align="center">
+        <dd>
             @Html.DisplayFor(model => model.ProductDescp)
         </dd>
 
-        <dt align="center">
+        <dt>
             @Html.DisplayNameFor(model => model.BidAmount)
         </dt>
 
-        <dd align="center">
+        <dd>
             @Html.DisplayFor(model => model.BidAmount)
         </dd>
 
-        <dt align="center">
+        <dt>
             @Html.DisplayNameFor(model => model.AuctionDate)
         </dt>
 
-        <dd align="center">
+        <dd>
             @Html.DisplayFor(model => model.AuctionDate)
         </dd>
 
-        <dt align="center">
+        <dt>
             @Html.DisplayNameFor(model => model.Category)
         </dt>
 
-        <dd align="center">
+        <dd>
             @Html.DisplayFor(model => model.Category)
         </dd>
 

@@ -6,10 +6,10 @@
 
 <h2>Index</h2>
 
-<table>
+@*<table>*@
 
 
-@foreach (var item in Model)
+@*@foreach (var item in Model)
 {
     double price = Convert.ToInt32(item.BidAmount);
     <tr style="margin-bottom:20px">
@@ -20,33 +20,36 @@
     </tr>
 }
 
-</table>
+</table>*@
 
 
+<div>
+    <h4>Product</h4>
+    <hr />
 
-    @*<div>
-        <h4>Product</h4>
-        <hr />
 
+    @foreach (var item in Model)
+    {
+        double price = Convert.ToInt32(item.BidAmount);
+        <div style="margin-bottom:30px">
+            <div>
+                <div style="margin-bottom:20px">
+                    <img src="@Url.Content(item.Images)" height="350" width="250" />
+                </div>
+                <div class="caption">
+                    <h3>
+                        @*@Html.ActionLink(@item.ProductName, "Details", new { id = item.ImageId })*@
+                        <a href="~/products/Details/@item.ImageId" class="btn btn-default">Exploere</a>
 
-        @foreach (var item in Model)
-        {
-            double price = Convert.ToInt32(item.BidAmount);
-            <div style="margin-bottom:30px">
-                <div>
-                    <div style="margin-bottom:20px">
-                        <img src="@Url.Content(item.Images)" height="350" width="250" />
-                    </div>
-                    <div class="caption">
-                        <h3>
-                            <a href="#">@item.ProductName</a>
-                        </h3>
-                        <h4>@price.ToString("F2")$</h4>
-                    </div>
+                    </h3>
+                    <h4>@price.ToString("F2")$</h4>
                 </div>
             </div>
-        }
-    </div>*@
+        </div>
+    }
+</div>
+
+
 
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ImageId }) |*@
