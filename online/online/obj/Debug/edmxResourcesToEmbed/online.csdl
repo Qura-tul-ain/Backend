@@ -101,7 +101,7 @@
       <PropertyRef Name="AmountId" />
     </Key>
     <Property Name="YourAmount1" Type="Double" Nullable="false" />
-    <Property Name="AmountId" Type="Int32" Nullable="false" />
+    <Property Name="AmountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ImageId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_YourAmount_AspNetUsers" FromRole="YourAmount" ToRole="AspNetUsers" />
@@ -195,7 +195,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="onlineEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="onlineEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />

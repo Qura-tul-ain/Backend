@@ -89,7 +89,7 @@
       <PropertyRef Name="AmountId" />
     </Key>
     <Property Name="YourAmount" Type="float" Nullable="false" />
-    <Property Name="AmountId" Type="int" Nullable="false" />
+    <Property Name="AmountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="ImageId" Type="int" Nullable="false" />
   </EntityType>

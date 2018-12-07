@@ -15,7 +15,7 @@ namespace online.Controllers
 {
     public class ProductsController : Controller
     {
-        private onlineEntities db = new onlineEntities();
+        private onlineEntities2 db = new onlineEntities2();
 
         // GET: Products
         public ActionResult Index()
@@ -28,9 +28,9 @@ namespace online.Controllers
             //    return View(p);
             List<Product> lists = new List<Product>();
             lists = db.Products.ToList();
-        return View(lists);
-		
-    }
+            return View(lists);
+
+        }
 
 
         // GET: Products/Details/5
@@ -69,7 +69,7 @@ namespace online.Controllers
                 filename = Path.Combine(Server.MapPath("~/images/"), filename);
                 productss.ImageFile.SaveAs(filename);
 
-                using (onlineEntities db = new onlineEntities ())
+                using (onlineEntities2 db = new onlineEntities2())
                 {
                     if (db.Products.Any(x => x.ProductName == productss.ProductName))
                     {
@@ -88,9 +88,9 @@ namespace online.Controllers
 
                     db.Products.Add(p);
                     db.SaveChanges();
-                }                                                                                                                           
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -161,7 +161,76 @@ namespace online.Controllers
             Product p1 = new Product();
             p = db.Products.Where(x => x.Category == "2").ToList();
             return View(p);
-          
+
+        }
+
+        //public ActionResult EnterYourAmount( Product collection)
+        //{
+        //    try
+        //    {
+        //        int amount = Convert.ToInt32(collection.amount);
+        //        //List<YourAmount> lists = new List<YourAmount>();
+        //        //Product pp = new Product();
+        //        List<YourAmount> lists = new List<YourAmount>();
+        //        //lists = db.YourAmounts.Where(x => x.ImageId == collection.ImageId).ToList();
+
+
+        //        YourAmount obj = new YourAmount();
+        //        obj.ImageId = collection.ImageId;
+        //        obj.YourAmount1 = amount;
+        //        //obj.Id = " 8f7ac670 - 34b7 - 4b6d - 8b6c - e9c650d6e7e3";
+        //        obj.Id = "12c";
+        //        db.YourAmounts.Add(obj);
+        //        db.SaveChanges();
+
+        //    }catch(Exception ex)
+        //    {
+        //        return View(ex);
+        //    }
+        //    ModelState.Clear();
+        //    return View("Index");
+        //}
+
+        public ActionResult EnterAmount()
+        {
+            return View();
+
+        }
+        [HttpPost]
+
+        public ActionResult EnterAmount(Product collection)
+        { 
+             YourAmount obj = new YourAmount();
+
+            try
+            {
+
+                if (collection.amount > collection.BidAmount )
+                {
+                    //YourAmount obj = new YourAmount();
+                    obj.YourAmount1 = collection.amount;
+                    obj.ImageId = collection.ImageId;
+                    obj.Id = "8f7ac670-34b7-4b6d-8b6c-e9c650d6e7e3";
+                    db.YourAmounts.Add(obj);
+                    db.SaveChanges();
+                
+                }
+                else
+                {
+                    ViewBag.amountError= "Amount should be greater than Bid Amount.";
+                }    
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+            //Biding o = new Biding();
+            //o.ImageId = obj.ImageId;
+            //o.YourAmount1 = obj.YourAmount1;
+            //o.Id = obj.Id;
+            //o.AmountId = obj.AmountId;
+            return View();
         }
 
         protected override void Dispose(bool disposing)

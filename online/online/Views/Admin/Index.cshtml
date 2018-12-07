@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    onlineEntities db = new onlineEntities();
+    onlineEntities2 db = new onlineEntities2();
     List<AspNetUser> lists = new List<AspNetUser>();
     lists = db.AspNetUsers.ToList();
 
@@ -24,6 +24,7 @@
 @foreach (AspNetUser a in lists)
 {
     <tr>
+       
         <td>
             @a.UserName
         </td>

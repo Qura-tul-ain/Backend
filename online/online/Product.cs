@@ -27,7 +27,7 @@ namespace online
         public double BidAmount { get; set; }
         public System.DateTime AuctionDate { get; set; }
         public string Category { get; set; }
-    
+    public double amount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YourAmount> YourAmounts { get; set; }
     }

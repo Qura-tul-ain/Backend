@@ -12,7 +12,7 @@ namespace online.Controllers
 {
     public class AdminController : Controller
     {
-        private onlineEntities db = new onlineEntities();
+        private onlineEntities2 db = new onlineEntities2();
 
         // GET: Admin
         public ActionResult Index()

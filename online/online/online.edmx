@@ -94,7 +94,7 @@
             <PropertyRef Name="AmountId" />
           </Key>
           <Property Name="YourAmount" Type="float" Nullable="false" />
-          <Property Name="AmountId" Type="int" Nullable="false" />
+          <Property Name="AmountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="ImageId" Type="int" Nullable="false" />
         </EntityType>
@@ -331,7 +331,7 @@
             <PropertyRef Name="AmountId" />
           </Key>
           <Property Name="YourAmount1" Type="Double" Nullable="false" />
-          <Property Name="AmountId" Type="Int32" Nullable="false" />
+          <Property Name="AmountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ImageId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_YourAmount_AspNetUsers" FromRole="YourAmount" ToRole="AspNetUsers" />
@@ -425,7 +425,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="onlineEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="onlineEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
@@ -469,7 +469,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities">
+        <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities2">
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="onlineModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">

@@ -32,5 +32,6 @@ namespace online.Models
 
         [Required]
         public string Category { get; set; }
+        public string YourAmount { get; set; }
     }
 }

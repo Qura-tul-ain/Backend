@@ -1,0 +1,66 @@
+﻿@model online.YourAmount
+
+@{
+    ViewBag.Title = "EnterYourAmount";
+    onlineEntities2 db = new onlineEntities2();
+    List<YourAmount> lists = new List<YourAmount>();
+    lists = db.YourAmounts.ToList();
+}
+
+<h2>EnterYourAmount</h2>
+
+<div>
+    <h4>YourAmount</h4>
+    <hr />
+<table>
+    @foreach (YourAmount a in lists)
+    {
+        <tr>
+
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.YourAmount1
+            </td>
+            <td>
+                @a.ImageId
+            </td>
+            <td>
+                @a.AmountId
+            </td>
+        </tr>
+    }
+
+    </table>
+    @*<dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.YourAmount1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YourAmount1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageId)
+        </dd>
+
+    </dl>*@
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -13,7 +13,7 @@ namespace online.Controllers
 {
     public class FeedbackssesController : Controller
     {
-        private onlineEntities db = new onlineEntities();
+        private onlineEntities2 db = new onlineEntities2();
 
         // GET: Feedbacksses
         public ActionResult Index()
