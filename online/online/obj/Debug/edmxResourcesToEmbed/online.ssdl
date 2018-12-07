@@ -1,17 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="onlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="OASModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetUserClaims">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="ClaimType" Type="nvarchar(max)" />
     <Property Name="ClaimValue" Type="nvarchar(max)" />
@@ -39,6 +49,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Cnic" Type="nvarchar(max)" />
+    <Property Name="Adress" Type="nvarchar(max)" />
     <Property Name="Email" Type="nvarchar" MaxLength="256" />
     <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
     <Property Name="PasswordHash" Type="nvarchar(max)" />
@@ -50,39 +62,40 @@
     <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-    <Property Name="Cnic" Type="nvarchar" MaxLength="15" />
-    <Property Name="Adress" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
   <EntityType Name="Feedbackss">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="FK_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="ImageId" />
     </Key>
-    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageId" Type="int" Nullable="false" />
     <Property Name="Images" Type="varchar(max)" />
     <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ProductDescp" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="BidAmount" Type="float" Nullable="false" />
     <Property Name="AuctionDate" Type="date" Nullable="false" />
     <Property Name="Category" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="FK_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
+  <EntityType Name="RegisteredUser">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FK_R_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
   <EntityType Name="YourAmount">
     <Key>
@@ -93,59 +106,7 @@
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="ImageId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_AspNetUserClaims_AspNetUsers">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserClaims">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserLogins_AspNetUserLogins">
-    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="1" />
-    <End Role="AspNetUserLogins1" Type="Self.AspNetUserLogins" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUserLogins">
-        <PropertyRef Name="LoginProvider" />
-        <PropertyRef Name="ProviderKey" />
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="AspNetUserLogins1">
-        <PropertyRef Name="LoginProvider" />
-        <PropertyRef Name="ProviderKey" />
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetRoles">
-    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetUsers">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Feedbackss_AspNetUsers">
+  <Association Name="FK__Feedbacks__FK_ID__2C3393D0">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Feedbackss" Type="Self.Feedbackss" Multiplicity="*" />
     <ReferentialConstraint>
@@ -157,31 +118,88 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_YourAmount_AspNetUsers">
+  <Association Name="FK__Products__FK_ID__300424B4">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-    <End Role="YourAmount" Type="Self.YourAmount" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="YourAmount">
-        <PropertyRef Name="Id" />
+      <Dependent Role="Products">
+        <PropertyRef Name="FK_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_YourAmount_Products">
-    <End Role="Products" Type="Self.Products" Multiplicity="1" />
-    <End Role="YourAmount" Type="Self.YourAmount" Multiplicity="*" />
+  <Association Name="FK__Registere__FK_R___35BCFE0A">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="ImageId" />
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="YourAmount">
-        <PropertyRef Name="ImageId" />
+      <Dependent Role="RegisteredUser">
+        <PropertyRef Name="FK_R_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="onlineModelStoreContainer">
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OASModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -189,35 +207,35 @@
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Feedbackss" EntityType="Self.Feedbackss" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegisteredUser" EntityType="Self.RegisteredUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YourAmount" EntityType="Self.YourAmount" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers" Association="Self.FK_AspNetUserClaims_AspNetUsers">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserLogins_AspNetUserLogins" Association="Self.FK_AspNetUserLogins_AspNetUserLogins">
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-      <End Role="AspNetUserLogins1" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="Self.FK_AspNetUserRoles_AspNetRoles">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="Self.FK_AspNetUserRoles_AspNetUsers">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Feedbackss_AspNetUsers" Association="Self.FK_Feedbackss_AspNetUsers">
+    <AssociationSet Name="FK__Feedbacks__FK_ID__2C3393D0" Association="Self.FK__Feedbacks__FK_ID__2C3393D0">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Feedbackss" EntitySet="Feedbackss" />
     </AssociationSet>
-    <AssociationSet Name="FK_YourAmount_AspNetUsers" Association="Self.FK_YourAmount_AspNetUsers">
+    <AssociationSet Name="FK__Products__FK_ID__300424B4" Association="Self.FK__Products__FK_ID__300424B4">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="YourAmount" EntitySet="YourAmount" />
-    </AssociationSet>
-    <AssociationSet Name="FK_YourAmount_Products" Association="Self.FK_YourAmount_Products">
       <End Role="Products" EntitySet="Products" />
-      <End Role="YourAmount" EntitySet="YourAmount" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registere__FK_R___35BCFE0A" Association="Self.FK__Registere__FK_R___35BCFE0A">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="RegisteredUser" EntitySet="RegisteredUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

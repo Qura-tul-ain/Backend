@@ -14,9 +14,9 @@ namespace online
     
     public partial class Feedbackss
     {
+        public int ID { get; set; }
         public string Subject { get; set; }
         public string Description { get; set; }
-        public int ID { get; set; }
         public string FK_ID { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }

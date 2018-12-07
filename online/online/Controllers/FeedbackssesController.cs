@@ -49,22 +49,25 @@ namespace online.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Subject,Description")] Feedbackss feedbackss)
+        public ActionResult Create([Bind(Include = "ID,Subject,Description, FK_ID")] Feedbackss feedbackss)
         {
-			Feedbackss fb = new Feedbackss();
+			//Feedbackss fb = new Feedbackss();
+			
+			
 			if (ModelState.IsValid)
             {
-				
+				/**
 				fb.Description = feedbackss.Description;
 				fb.Subject = feedbackss.Subject;
-				fb.FK_ID = User.Identity.GetUserId();
-				db.Feedbacksses.Add(fb);
+	**/
+				feedbackss.FK_ID = User.Identity.GetUserId();
+				db.Feedbacksses.Add(feedbackss);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", "Cnic", fb.FK_ID);
-            return View(fb);
+            ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
+            return View(feedbackss);
         }
 
         // GET: Feedbacksses/Edit/5
@@ -88,15 +91,16 @@ namespace online.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Subject,Description,FK_ID")] Feedbackss feedbackss)
+        public ActionResult Edit([Bind(Include = "ID,Subject,Description")] Feedbackss feedbackss)
         {
             if (ModelState.IsValid)
             {
+				feedbackss.FK_ID = User.Identity.GetUserId();
                 db.Entry(feedbackss).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", "Cnic", feedbackss.FK_ID);
+            ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
             return View(feedbackss);
         }
 

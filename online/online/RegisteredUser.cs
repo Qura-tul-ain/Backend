@@ -12,12 +12,16 @@ namespace online
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class RegisteredUser
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string CNIC { get; set; }
+        public string Address { get; set; }
+        public string Password { get; set; }
+        public string FK_R_ID { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

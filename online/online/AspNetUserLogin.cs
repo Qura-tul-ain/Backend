@@ -18,7 +18,6 @@ namespace online
         public string ProviderKey { get; set; }
         public string UserId { get; set; }
     
-        public virtual AspNetUserLogin AspNetUserLogins1 { get; set; }
-        public virtual AspNetUserLogin AspNetUserLogin1 { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

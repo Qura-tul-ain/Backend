@@ -18,8 +18,5 @@ namespace online
         public int AmountId { get; set; }
         public string Id { get; set; }
         public int ImageId { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Product Product { get; set; }
     }
 }

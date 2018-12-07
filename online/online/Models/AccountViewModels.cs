@@ -66,7 +66,7 @@ namespace online.Models
     {
         [Required]
         [Display(Name = "YourName")]
-        public string Username { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [EmailAddress]
@@ -77,7 +77,7 @@ namespace online.Models
        
         [Display(Name = "CNIC")]
         [StringLength(100, MinimumLength = 13)]
-        public string Cnic { get; set; }
+        public string CNIC { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -90,7 +90,7 @@ namespace online.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
 
     }
