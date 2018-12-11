@@ -18,5 +18,8 @@ namespace online
         public int AmountId { get; set; }
         public string Id { get; set; }
         public int ImageId { get; set; }
+    
+        public virtual Product Product { get; set; }
+        public virtual RegisteredUser RegisteredUser { get; set; }
     }
 }

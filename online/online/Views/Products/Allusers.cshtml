@@ -1,0 +1,77 @@
+﻿@model online.Models.BidingDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h4>Details of users With Amount </h4>
+@*<div class="panel panel-body" style="min-height:256px">*@
+
+<div class="col-md-12" style="min-height:256px  ; display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 700px;
+    margin: 0 auto;">
+
+    @if (Model != null)
+            {
+        <div class="col-md-4" style=" display: inline-block;  width: 100px;
+    height: 200px; ">
+
+            <ul>
+                @foreach (var item in Model.user)
+                {
+                    <li>
+                        @item.Name
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-4" style=" display: inline-block;  width: 100px;
+    height: 200px;">
+
+            <ul>
+                @foreach (var item in Model.pro)
+                {
+                    <li>
+                        @item.ProductName
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-4" style="display: inline-block;  width: 100px;
+    height: 200px;">
+            <ul>
+                @foreach (var item in Model.bid)
+                {
+                    <li>
+                        @item.YourAmount1
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+
+</div>
+
+
+@*<table class="table table-striped">
+        <tr>
+            <td>Student Name</td>
+            <td>Student Stream</td>
+            <td>Favourate Fruite</td>
+            <td>Hobby</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.user.Name)</td>
+                <td>@item.user.Name</td>
+                <td>@item.studentAdditionalInfoVm.FavourateFruit</td>
+                <td>@item.studentAdditionalInfoVm.Hobby</td>
+            </tr>
+        }
+    </table>*@

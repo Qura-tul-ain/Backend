@@ -182,15 +182,17 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>online.tt</DependentUpon>
     </Compile>
+    <Compile Include="AspNetUserRole.cs">
+      <DependentUpon>online.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FeedbackssesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>online.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\RegisteredUsersController.cs" />
+    <Compile Include="Controllers\RegisterssController.cs" />
     <Compile Include="Feedbackss.cs">
       <DependentUpon>online.tt</DependentUpon>
     </Compile>
@@ -200,7 +202,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Biding.cs" />
+    <Compile Include="Models\BidingDetails.cs" />
     <Compile Include="Models\FeedBackViewModel.cs" />
+    <Compile Include="Models\helpingclass.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
@@ -227,7 +231,13 @@
       <DependentUpon>online.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>online.tt</DependentUpon>
+    </Compile>
     <Compile Include="YourAmount.cs">
+      <DependentUpon>online.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YourAmount1.cs">
       <DependentUpon>online.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -323,6 +333,17 @@
     <Content Include="Views\Feedbacksses\Details.cshtml" />
     <Content Include="Views\Feedbacksses\Edit.cshtml" />
     <Content Include="Views\Feedbacksses\Index.cshtml" />
+    <Content Include="Views\Registerss\Create.cshtml" />
+    <Content Include="Views\Products\Displaycars.cshtml" />
+    <Content Include="Views\Products\DisplayArt.cshtml" />
+    <Content Include="Views\Products\DisplayFashion.cshtml" />
+    <Content Include="Views\Products\Allusers.cshtml" />
+    <Content Include="Views\RegisteredUsers\Create.cshtml" />
+    <Content Include="Views\RegisteredUsers\Delete.cshtml" />
+    <Content Include="Views\RegisteredUsers\Details.cshtml" />
+    <Content Include="Views\RegisteredUsers\Edit.cshtml" />
+    <Content Include="Views\RegisteredUsers\Index.cshtml" />
+    <Content Include="Views\Registerss\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

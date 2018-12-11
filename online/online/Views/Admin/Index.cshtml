@@ -2,18 +2,18 @@
 
 @{
     ViewBag.Title = "Index";
-    onlineEntities2 db = new onlineEntities2();
-    List<AspNetUser> lists = new List<AspNetUser>();
-    lists = db.AspNetUsers.ToList();
+    onlineEntities db = new onlineEntities();
+    List<RegisteredUser> lists = new List<RegisteredUser>();
+    lists = db.RegisteredUsers.ToList();
 
 }
 
-<h2>Index</h2>
+<h2 class="m-text4">All Registered User</h2>
 
 <div>
-    <h4>AspNetUser</h4>
+    <h4></h4>
     <hr />
-  <table cellspacing="30" cellpadding="2" >
+  @*<table cellspacing="30" cellpadding="2" >
       <tr>
           <td> Name</td>
           <td> Email</td>
@@ -21,18 +21,18 @@
           <td> Adress</td>
       </tr>
 
-@foreach (AspNetUser a in lists)
+@foreach (RegisteredUser a in lists)
 {
     <tr>
        
         <td>
-            @a.UserName
+            @a.Name
         </td>
         <td>
             @a.Email
         </td>
         <td>
-            @a.Cnic
+            @a.CNIC
         </td>
         <td>
             @a.Adress
@@ -40,7 +40,46 @@
     </tr>
 }
 
-  </table>
+  </table>*@
+
+    @*<div class="row">
+        <div class="col-sm-3">
+            <div>
+                'Name'
+            </div>
+            <div>
+                "Email"
+            </div>
+            <div>
+                "CNIC"
+            </div>
+            <div>
+                "Adress"
+            </div>
+        </div>
+        </div>*@
+
+
+    <div class="row">
+@foreach (RegisteredUser a in lists)
+{
+    <div class="col-sm-3">
+        <div>
+            @a.Name
+        </div>
+        <div>
+            @a.Email
+        </div>
+        <div>
+            @a.CNIC
+        </div>
+        <div>
+            @a.Adress
+        </div>
+    </div>
+
+}
+    </div>
         @*@foreach (AspNetUser a in lists)
         {*@
            

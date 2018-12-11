@@ -5,145 +5,149 @@
     var im = @Model.Images;
 }
 
-<h2>Details</h2>
+<h4 class="m-text5 t-center">Details</h4>
 
 @using (Html.BeginForm("EnterYourAmount", "Products"))
 {
     @Html.AntiForgeryToken()
-<div>
-    <h4>Product</h4>
-    <hr />
- 
+    <div class="panel panel-body">
+        @*<h4 class="m-text5 t-center">Product</h4>*@
+        <hr />
 
-    @*<dl>
-        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
-        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
-        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
-        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
-        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
-        <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
-    </dl>
-    <dl class="dl-horizontal"> *@
+
+        @*<dl>
+                <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+                <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+                <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+                <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+                <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+                <dt>@Html.DisplayNameFor(model => model.ProductName)</dt>
+            </dl>
+            <dl class="dl-horizontal"> *@
         @*<dt align="center">
-            <br />
-            <br />
-            @Html.DisplayNameFor(model => model.Images)
-        </dt>*@
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.ImageId)
-        <div class="form-group">
+                <br />
+                <br />
+                @Html.DisplayNameFor(model => model.Images)
+            </dt>*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ImageId)
+        <div class="m-text2 t-center">
             @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="m-text2 t-center">
                 @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
                 @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger", @readonly = "readonly" })
             </div>
         </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.ProductDescp, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ProductDescp, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
-            @Html.ValidationMessageFor(model => model.ProductDescp, "", new { @class = "text-danger" })
+        <div class="m-text2">
+            @Html.LabelFor(model => model.ProductDescp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+               @* @Html.TextAreaFor(model => model.ProductDescp, 2, 50, new { @class = "form-control required", style = "max-width:25% !important;" })*@
+                @Html.EditorFor(model => model.ProductDescp, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.ProductDescp, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.BidAmount, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BidAmount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BidAmount, "", new { @class = "text-danger" })
+        <div class="m-text2 t-center">
+            @Html.LabelFor(model => model.BidAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="m-text2 t-center">
+                @Html.EditorFor(model => model.BidAmount, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.BidAmount, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.AuctionDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.AuctionDate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AuctionDate, "", new { @class = "text-danger" })
+        <div class="m-text2 t-center">
+            @Html.LabelFor(model => model.AuctionDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="m-text2 t-center">
+                @Html.EditorFor(model => model.AuctionDate, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.AuctionDate, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+        <div class="m-text2 t-center">
+            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="m-text2 t-center">
+                @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-       <div>
-           <img src="@Url.Content(Model.Images)" />
-       </div>
-    <div>
-        @Html.DisplayNameFor(model => model.amount)
-        <div>
-            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
-        </div>
-    </div>
-        @*<dt align="center">
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-
-        <dd align="center">
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-
-        @*<dt align="center">
-            @Html.DisplayNameFor(model => model.ProductDescp)
-        </dt>
-
-        <dd align="center">
-            @Html.DisplayFor(model => model.ProductDescp)
-        </dd>
-
-        @*<dt align="center">
-            @Html.DisplayNameFor(model => model.BidAmount)
-        </dt>
-
-        <dd align="center">
-            @Html.DisplayFor(model => model.BidAmount)
-        </dd>
-
-        @*<dt align="center">
-            @Html.DisplayNameFor(model => model.AuctionDate)
-        </dt>
-
-        <dd align="center">
-            @Html.DisplayFor(model => model.AuctionDate)
-        </dd>
-
-        @*<dt align="center">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-
-        <dd align="center">
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-        <dd align="center">
+        <div class="m-text2 t-center">
             <img src="@Url.Content(Model.Images)" />
-        </dd>
-    
+        </div>
+        <div class="m-text2">
+            @Html.DisplayNameFor(model => model.amount)
+            <div class="m-text2">
+                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<dt align="center">
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </dt>
 
-    <dt>@Html.DisplayNameFor(model => model.amount)</dt>
-    <dd>
-        @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
-    </dd>
-    @*<dd align="center">
-        @Html.DisplayFor(model => model.ImageId)
-    </dd>
+                <dd align="center">
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
 
-        <dd>*@
-    <div>
-        <input type="submit" name="Accept" value="Accept" formaction=@Url.Action("EnterAmount") formmethod="post" class="btn btn-primary" />
+                @*<dt align="center">
+                    @Html.DisplayNameFor(model => model.ProductDescp)
+                </dt>
+
+                <dd align="center">
+                    @Html.DisplayFor(model => model.ProductDescp)
+                </dd>
+
+                @*<dt align="center">
+                    @Html.DisplayNameFor(model => model.BidAmount)
+                </dt>
+
+                <dd align="center">
+                    @Html.DisplayFor(model => model.BidAmount)
+                </dd>
+
+                @*<dt align="center">
+                    @Html.DisplayNameFor(model => model.AuctionDate)
+                </dt>
+
+                <dd align="center">
+                    @Html.DisplayFor(model => model.AuctionDate)
+                </dd>
+
+                @*<dt align="center">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+
+                <dd align="center">
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+                <dd align="center">
+                    <img src="@Url.Content(Model.Images)" />
+                </dd>
+
+
+            <dt>@Html.DisplayNameFor(model => model.amount)</dt>
+            <dd>
+                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+            </dd>
+            @*<dd align="center">
+                @Html.DisplayFor(model => model.ImageId)
+            </dd>
+
+                <dd>*@
+        <div class="m-text2 t-center">
+            <input type="submit" name="Accept" value="Accept" formaction=@Url.Action("EnterAmount") formmethod="post" class="btn btn-primary" />
+        </div>
+        @* <a href="~/products/Details/@item.ImageId" class="btn btn-default">Exploere</a>
+
+
+                    </dd>
+            }
+                </dl>*@
     </div>
-           @* <a href="~/products/Details/@item.ImageId" class="btn btn-default">Exploere</a>
-
-      
-        </dd>
 }
-    </dl>*@
+<div>
+    @Html.ActionLink("Users bid on this product", "Allusers", new { id = Model.ImageId }) 
 </div>
-}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ImageId }) |
     @Html.ActionLink("Back to List", "Index")

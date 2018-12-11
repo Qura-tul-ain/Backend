@@ -14,14 +14,32 @@ namespace online
     
     public partial class RegisteredUser
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RegisteredUser()
+        {
+            this.AspNetUserRoles = new HashSet<AspNetUserRole>();
+            this.Feedbacksses = new HashSet<Feedbackss>();
+            this.Products = new HashSet<Product>();
+            this.YourAmounts = new HashSet<YourAmount>();
+            this.YourAmounts1 = new HashSet<YourAmount1>();
+        }
+    
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string CNIC { get; set; }
-        public string Address { get; set; }
+        public string Adress { get; set; }
         public string Password { get; set; }
-        public string FK_R_ID { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUserRole> AspNetUserRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedbackss> Feedbacksses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YourAmount> YourAmounts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YourAmount1> YourAmounts1 { get; set; }
     }
 }

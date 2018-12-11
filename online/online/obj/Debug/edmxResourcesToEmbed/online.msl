@@ -1,26 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="OASModelStoreContainer" CdmEntityContainer="onlineEntities2">
-    <EntitySetMapping Name="C__MigrationHistory">
-      <EntityTypeMapping TypeName="OASModel.C__MigrationHistory">
-        <MappingFragment StoreEntitySet="__MigrationHistory">
-          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="onlineModelStoreContainer" CdmEntityContainer="onlineEntities">
     <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="OASModel.AspNetRole">
+      <EntityTypeMapping TypeName="onlineModel.AspNetRole">
         <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="OASModel.AspNetUserClaim">
+      <EntityTypeMapping TypeName="onlineModel.AspNetUserClaim">
         <MappingFragment StoreEntitySet="AspNetUserClaims">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -30,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="OASModel.AspNetUserLogin">
+      <EntityTypeMapping TypeName="onlineModel.AspNetUserLogin">
         <MappingFragment StoreEntitySet="AspNetUserLogins">
           <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
           <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -38,12 +28,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="onlineModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="OASModel.AspNetUser">
+      <EntityTypeMapping TypeName="onlineModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
-          <ScalarProperty Name="Adress" ColumnName="Adress" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
           <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
@@ -55,21 +51,23 @@
           <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
           <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Feedbacksses">
-      <EntityTypeMapping TypeName="OASModel.Feedbackss">
+      <EntityTypeMapping TypeName="onlineModel.Feedbackss">
         <MappingFragment StoreEntitySet="Feedbackss">
-          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="FK_ID" ColumnName="FK_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="OASModel.Product">
+      <EntityTypeMapping TypeName="onlineModel.Product">
         <MappingFragment StoreEntitySet="Products">
           <ScalarProperty Name="ImageId" ColumnName="ImageId" />
           <ScalarProperty Name="Images" ColumnName="Images" />
@@ -78,25 +76,35 @@
           <ScalarProperty Name="BidAmount" ColumnName="BidAmount" />
           <ScalarProperty Name="AuctionDate" ColumnName="AuctionDate" />
           <ScalarProperty Name="Category" ColumnName="Category" />
-          <ScalarProperty Name="FK_ID" ColumnName="FK_ID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RegisteredUsers">
-      <EntityTypeMapping TypeName="OASModel.RegisteredUser">
+      <EntityTypeMapping TypeName="onlineModel.RegisteredUser">
         <MappingFragment StoreEntitySet="RegisteredUser">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
           <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="FK_R_ID" ColumnName="FK_R_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="onlineModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="YourAmounts">
-      <EntityTypeMapping TypeName="OASModel.YourAmount">
+      <EntityTypeMapping TypeName="onlineModel.YourAmount">
         <MappingFragment StoreEntitySet="YourAmount">
           <ScalarProperty Name="YourAmount1" ColumnName="YourAmount" />
           <ScalarProperty Name="AmountId" ColumnName="AmountId" />
@@ -105,13 +113,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="OASModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      <EndProperty Name="AspNetRoles">
-        <ScalarProperty Name="Id" ColumnName="RoleId" />
-      </EndProperty>
-      <EndProperty Name="AspNetUsers">
-        <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="YourAmounts1">
+      <EntityTypeMapping TypeName="onlineModel.YourAmount1">
+        <MappingFragment StoreEntitySet="YourAmounts">
+          <ScalarProperty Name="YourAmount" ColumnName="YourAmount" />
+          <ScalarProperty Name="AmountId" ColumnName="AmountId" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
