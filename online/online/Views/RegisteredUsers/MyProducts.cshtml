@@ -1,0 +1,115 @@
+﻿@model IEnumerable<online.Product>
+
+@{
+    ViewBag.Title = "MyProducts";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>MyProducts</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+
+
+
+
+
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4">
+                <div style="margin-bottom:20px">
+                    <img src="@Url.Content(item.Images)" height="350" width="450" />
+                </div>
+                <div class="caption">
+                    <h3>
+                        @item.ProductName
+                        @*@Html.ActionLink(@item.ProductName, "Details", new { id = item.ImageId })*@
+
+
+                    </h3>
+                    <br />
+                    <h4>
+                        <a href="~/products/Details/@item.ImageId" class="btn btn-default">Exploere</a>
+                    </h4>
+                </div>
+
+            </div>
+        }
+    </div>
+
+    @*<dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Images)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Images)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDescp)
+        </dt>*@
+
+    @*<dd>
+                @Html.DisplayFor(model => model.ProductDescp)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BidAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BidAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuctionDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AuctionDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.amount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.amount)
+            </dd>
+
+        </dl>*@
+</div>
+<br />
+<br />
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

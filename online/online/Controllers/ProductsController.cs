@@ -88,7 +88,7 @@ namespace online.Controllers
                     p.Category = productss.Category;
                     p.BidAmount = productss.BidAmount;
                     p.AuctionDate = productss.AuctionDate;
-                    p.Id = "123";
+                    p.Id = 12345;
 
                     db.Products.Add(p);
                     db.SaveChanges();
@@ -128,7 +128,7 @@ namespace online.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.Id = "123";
+                product.Id = 123;
                 db.Entry(product).State = EntityState.Modified;
 
                 db.SaveChanges();
@@ -177,6 +177,15 @@ namespace online.Controllers
             List<Product> p = new List<Product>();
             Product p1 = new Product();
             p = db.Products.Where(x => x.Category == "Cars").ToList();
+            return View(p);
+
+        }
+
+        public ActionResult Displayhouses()
+        {
+            List<Product> p = new List<Product>();
+            Product p1 = new Product();
+            p = db.Products.Where(x => x.Category == "Houses").ToList();
             return View(p);
 
         }
@@ -261,7 +270,7 @@ namespace online.Controllers
                         //YourAmount obj = new YourAmount();
                         obj.YourAmount1 = collection.amount;
                         obj.ImageId = collection.ImageId;
-                        obj.Id = "1";
+                        obj.Id = ViewBag.id;
                         db.YourAmounts.Add(obj);
                         db.SaveChanges();
                     }

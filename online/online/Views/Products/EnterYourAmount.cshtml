@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "EnterYourAmount";
-    onlineEntities2 db = new onlineEntities2();
+    onlineEntities db = new onlineEntities();
     List<YourAmount> lists = new List<YourAmount>();
     lists = db.YourAmounts.ToList();
 }

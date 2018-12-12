@@ -60,13 +60,13 @@ namespace online.Controllers
 				fb.Description = feedbackss.Description;
 				fb.Subject = feedbackss.Subject;
 	**/
-				feedbackss.FK_ID = User.Identity.GetUserId();
+				//feedbackss.FK_ID = User.Identity.GetUserId();
 				db.Feedbacksses.Add(feedbackss);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
+            //ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
             return View(feedbackss);
         }
 
@@ -95,12 +95,12 @@ namespace online.Controllers
         {
             if (ModelState.IsValid)
             {
-				feedbackss.FK_ID = User.Identity.GetUserId();
+				//feedbackss.FK_ID = User.Identity.GetUserId();
                 db.Entry(feedbackss).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
+            //ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
             return View(feedbackss);
         }
 

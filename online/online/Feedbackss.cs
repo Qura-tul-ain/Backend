@@ -17,7 +17,7 @@ namespace online
         public string Subject { get; set; }
         public string Description { get; set; }
         public int ID { get; set; }
-        public string FK_ID { get; set; }
+        public int FK_ID { get; set; }
     
         public virtual RegisteredUser RegisteredUser { get; set; }
     }

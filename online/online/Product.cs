@@ -18,7 +18,6 @@ namespace online
         public Product()
         {
             this.YourAmounts = new HashSet<YourAmount>();
-            this.YourAmounts1 = new HashSet<YourAmount1>();
         }
     
         public int ImageId { get; set; }
@@ -28,12 +27,10 @@ namespace online
         public double BidAmount { get; set; }
         public System.DateTime AuctionDate { get; set; }
         public string Category { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
     public double amount { get; set; }
         public virtual RegisteredUser RegisteredUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YourAmount> YourAmounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<YourAmount1> YourAmounts1 { get; set; }
     }
 }

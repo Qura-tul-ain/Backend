@@ -13,117 +13,84 @@
 <div>
     <h4></h4>
     <hr />
-  @*<table cellspacing="30" cellpadding="2" >
-      <tr>
-          <td> Name</td>
-          <td> Email</td>
-          <td> Cnic</td>
-          <td> Adress</td>
-      </tr>
 
-@foreach (RegisteredUser a in lists)
-{
-    <tr>
-       
-        <td>
-            @a.Name
-        </td>
-        <td>
-            @a.Email
-        </td>
-        <td>
-            @a.CNIC
-        </td>
-        <td>
-            @a.Adress
-        </td>
-    </tr>
-}
-
-  </table>*@
-
-    @*<div class="row">
-        <div class="col-sm-3">
-            <div>
-                'Name'
-            </div>
-            <div>
-                "Email"
-            </div>
-            <div>
-                "CNIC"
-            </div>
-            <div>
-                "Adress"
-            </div>
-        </div>
-        </div>*@
 
 
     <div class="row">
-@foreach (RegisteredUser a in lists)
-{
-    <div class="col-sm-3">
-        <div>
-            @a.Name
+    @foreach (RegisteredUser a in lists)
+    {
+        <div class="col-sm-3">
+            <div>
+                @a.Name
+
+                <div>
+                    @a.Email
+                </div>
+                <div>
+                    @a.CNIC
+                </div>
+                <div>
+                    @a.Adress
+                </div>
+                <br />
+            </div>
         </div>
-        <div>
-            @a.Email
-        </div>
-        <div>
+    }
+      <br>
+   
+
+
+
+    </div>
+    <br />
+    </div>
+    @*<tr>
+
+    @foreach (RegisteredUser a in lists)
+    {
+
+   
+
+        <dt>
             @a.CNIC
-        </div>
-        <div>
+        </dt>
+
+
+        <dd>
             @a.Adress
-        </div>
-    </div>
-
-}
-    </div>
-        @*@foreach (AspNetUser a in lists)
-        {*@
-           
-         
-
-            @*<dd>
-                @a.Cnic
-            </dd>
+        </dd>
 
 
-            <dd>
-                @a.Adress
-            </dd>
 
-        
+                <dd>
+                    @a.Email
+                </dd>
+    }
 
-            <dd>
-                @a.Email
-            </dd>
+            </tr>
+        </div>*@
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </dt>*@
 
-        
+                @*<dd>
+                        @a.PhoneNumber
+                    </dd>*@
 
-            @*<dt>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </dt>*@
 
-            @*<dd>
-                @a.PhoneNumber
-            </dd>*@
-            
+
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </dt>*@
+
+                @*<dd>
+                        @a.UserName
+                    </dd>*@
+                @*}*@
 
           
 
-            @*<dt>
-                @Html.DisplayNameFor(model => model.UserName)
-            </dt>*@
-
-            @*<dd>
-                @a.UserName
-            </dd>*@
-        @*}*@ 
-
-    
-</div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")*@

@@ -15,7 +15,7 @@ namespace online.Controllers
 {
     public class RegisterssController : Controller
     {
-
+        int ii = 3;
         string connectionstring = @"Data Source=DESKTOP-G0K5DQK;Initial Catalog=online;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
         private object db;
         private onlineEntities dbb = new onlineEntities();
@@ -54,21 +54,24 @@ namespace online.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(RegisterViewModel registeredUser)
         {
-
+        
             try
             {
               
                 RegisteredUser obj = new RegisteredUser();
-                obj.Id = "10";
+                obj.Id = ii ;
                 obj.Name = registeredUser.Name;
                 obj.Password = registeredUser.Password;
                 obj.Email = registeredUser.Email;
                 obj.Adress = registeredUser.Address;
                 obj.CNIC = registeredUser.CNIC;
                 dbb.RegisteredUsers.Add(obj);
+                ii++;
                 dbb.SaveChanges();
+              
 
-                return View();
+                return RedirectToAction("Login", "Registerss");
+
             }catch(Exception ex)
             {
                 return View(ex);
@@ -94,10 +97,12 @@ namespace online.Controllers
                     if(a.Email == model.Email && a.Password==model.Password)
                     {
                         i = 0;
+                        ViewBag.id = a.Id;
                     }
                 }
                 if(i==0)
                 {
+                   
                     return RedirectToAction("Index", "Products");
                 }
                 else

@@ -10,7 +10,11 @@ namespace online.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            onlineEntities db = new onlineEntities();
+            List<Product> lists = new List<Product>();
+            lists = db.Products.ToList();
+            return View(lists);
+
         }
 
         public ActionResult About()

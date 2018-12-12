@@ -14,13 +14,11 @@ namespace online
     
     public partial class AspNetUserRole
     {
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public string RoleId { get; set; }
     
-        public virtual AspNetRole AspNetRole { get; set; }
         public virtual AspNetUserRole AspNetUserRoles1 { get; set; }
         public virtual AspNetUserRole AspNetUserRole1 { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
         public virtual RegisteredUser RegisteredUser { get; set; }
     }
 }

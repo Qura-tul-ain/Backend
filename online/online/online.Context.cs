@@ -35,6 +35,5 @@ namespace online
         public virtual DbSet<RegisteredUser> RegisteredUsers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<YourAmount> YourAmounts { get; set; }
-        public virtual DbSet<YourAmount1> YourAmounts1 { get; set; }
     }
 }

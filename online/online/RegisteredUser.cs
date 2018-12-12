@@ -21,10 +21,9 @@ namespace online
             this.Feedbacksses = new HashSet<Feedbackss>();
             this.Products = new HashSet<Product>();
             this.YourAmounts = new HashSet<YourAmount>();
-            this.YourAmounts1 = new HashSet<YourAmount1>();
         }
     
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string CNIC { get; set; }
@@ -39,7 +38,5 @@ namespace online
         public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YourAmount> YourAmounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<YourAmount1> YourAmounts1 { get; set; }
     }
 }

@@ -1,39 +1,39 @@
 ﻿@model IEnumerable<online.Product>
 
 @{
-    ViewBag.Title = "DisplayArt";
+    ViewBag.Title = "Displayhouses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DisplayArt</h2>
+<h2>Displayhouses</h2>
 
-
-    <h4></h4>
-    <hr />
+<h3></h3>
+<hr />
 <br />
 <div>
 
     <section class="slide1">
         <div class="wrap-slick1">
             <div class="slick1">
+               
 
+                <div class="item-slick1 item2-slick1" style="background-image: url(../images/hero_door_banner_mgws2.jpg);">
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                            <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
+                                Online Auction
+                            </span>
 
-                <div class="item-slick1 item2-slick1" style="background-image: url(../images/Iris-Scott-Talented-Artist-Only-Uses-Her-Fingers-To-Draw-1.jpg);">
-                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                        <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-                            Online Auction
-                        </span>
-
-                        <h2 class="l-text2 t-center">
-                            Art Gallary
-                        </h2>
-                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-                            Button
-                            <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                                Log In Now
-                            </a>
+                            <h2 class="l-text2 t-center">
+                                Houses Collection
+                            </h2>
+                            <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
+                                Button
+                                <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                    Log In Now
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 @*<div class="item-slick1 item3-slick1" style="background-image: url(../images/1.jpg);">
                         <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
@@ -76,7 +76,7 @@
         {
 
             double price = Convert.ToInt32(item.BidAmount);
-            <div style="margin-bottom:30px" class="col-sm-3">
+            <div style="margin-bottom:30px" class="col-sm-4">
 
                 <div style="margin-bottom:20px">
                     <img src="@Url.Content(item.Images)" height="350" width="450" />
@@ -93,8 +93,4 @@
         }
     </div>
 </div>
-    
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

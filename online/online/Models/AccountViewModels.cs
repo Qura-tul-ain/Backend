@@ -91,7 +91,7 @@ namespace online.Models
         public string ConfirmPassword { get; set; }
 
         public string Address { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
 
     }
 

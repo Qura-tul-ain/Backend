@@ -113,15 +113,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="YourAmounts1">
-      <EntityTypeMapping TypeName="onlineModel.YourAmount1">
-        <MappingFragment StoreEntitySet="YourAmounts">
-          <ScalarProperty Name="YourAmount" ColumnName="YourAmount" />
-          <ScalarProperty Name="AmountId" ColumnName="AmountId" />
-          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

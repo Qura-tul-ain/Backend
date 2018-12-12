@@ -4,30 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0aa25ea4a8614ee0bdb6c2d4405b1a32" Name="Diagram1">
-        <EntityTypeShape EntityType="onlineModel.AspNetRole" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.AspNetUserLogin" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.AspNetUserRole" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.AspNetUser" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.Feedbackss" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.Product" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.RegisteredUser" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.YourAmount" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="onlineModel.YourAmount1" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <AssociationConnector Association="onlineModel.FK_AspNetUserRoles_AspNetRoles" ManuallyRouted="false" />
+      <Diagram DiagramId="f5bca781ee1c432ba4a35eff72132551" Name="Diagram1">
+        <EntityTypeShape EntityType="onlineModel.AspNetRole" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.AspNetUserClaim" Width="1.5" PointX="10" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.AspNetUserLogin" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.AspNetUserRole" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.AspNetUser" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.Feedbackss" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.Product" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.RegisteredUser" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.sysdiagram" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="onlineModel.YourAmount" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="onlineModel.FK_AspNetUserClaims_AspNetUsers" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_AspNetUserLogins_AspNetUserLogins" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_AspNetUserRoles_AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="onlineModel.FK_AspNetUserRoles_AspNetUsers" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_AspNetUserRoles_RegisteredUser" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_Feedbackss_RegisteredUser" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_Products_RegisteredUser" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_YourAmount_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="onlineModel.FK_YourAmounts_Products" ManuallyRouted="false" />
         <AssociationConnector Association="onlineModel.FK_YourAmount_RegisteredUser" ManuallyRouted="false" />
-        <AssociationConnector Association="onlineModel.FK_YourAmounts_RegisteredUser" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

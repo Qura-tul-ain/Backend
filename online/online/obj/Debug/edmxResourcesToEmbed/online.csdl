@@ -4,16 +4,15 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_AspNetUserRoles_AspNetRoles" FromRole="AspNetRoles" ToRole="AspNetUserRoles" />
   </EntityType>
   <EntityType Name="AspNetUserClaim">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserClaims_AspNetUsers" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
@@ -35,19 +34,17 @@
       <PropertyRef Name="UserId" />
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetRole" Relationship="Self.FK_AspNetUserRoles_AspNetRoles" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
     <NavigationProperty Name="AspNetUserRoles1" Relationship="Self.FK_AspNetUserRoles_AspNetUserRoles" FromRole="AspNetUserRoles" ToRole="AspNetUserRoles1" />
     <NavigationProperty Name="AspNetUserRole1" Relationship="Self.FK_AspNetUserRoles_AspNetUserRoles" FromRole="AspNetUserRoles1" ToRole="AspNetUserRoles" />
-    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserRoles_AspNetUsers" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
     <NavigationProperty Name="RegisteredUser" Relationship="Self.FK_AspNetUserRoles_RegisteredUser" FromRole="AspNetUserRoles" ToRole="RegisteredUser" />
   </EntityType>
   <EntityType Name="AspNetUser">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
     <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -62,7 +59,6 @@
     <Property Name="Cnic" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="Adress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_AspNetUserClaims_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_AspNetUserRoles_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
   </EntityType>
   <EntityType Name="Feedbackss">
     <Key>
@@ -71,7 +67,7 @@
     <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="FK_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="RegisteredUser" Relationship="Self.FK_Feedbackss_RegisteredUser" FromRole="Feedbackss" ToRole="RegisteredUser" />
   </EntityType>
   <EntityType Name="Product">
@@ -85,16 +81,15 @@
     <Property Name="BidAmount" Type="Double" Nullable="false" />
     <Property Name="AuctionDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Category" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="RegisteredUser" Relationship="Self.FK_Products_RegisteredUser" FromRole="Products" ToRole="RegisteredUser" />
     <NavigationProperty Name="YourAmounts" Relationship="Self.FK_YourAmount_Products" FromRole="Products" ToRole="YourAmount" />
-    <NavigationProperty Name="YourAmounts1" Relationship="Self.FK_YourAmounts_Products" FromRole="Products" ToRole="YourAmounts" />
   </EntityType>
   <EntityType Name="RegisteredUser">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CNIC" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
@@ -104,7 +99,6 @@
     <NavigationProperty Name="Feedbacksses" Relationship="Self.FK_Feedbackss_RegisteredUser" FromRole="RegisteredUser" ToRole="Feedbackss" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Products_RegisteredUser" FromRole="RegisteredUser" ToRole="Products" />
     <NavigationProperty Name="YourAmounts" Relationship="Self.FK_YourAmount_RegisteredUser" FromRole="RegisteredUser" ToRole="YourAmount" />
-    <NavigationProperty Name="YourAmounts1" Relationship="Self.FK_YourAmounts_RegisteredUser" FromRole="RegisteredUser" ToRole="YourAmounts" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -122,34 +116,11 @@
     </Key>
     <Property Name="YourAmount1" Type="Double" Nullable="false" />
     <Property Name="AmountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="ImageId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Product" Relationship="Self.FK_YourAmount_Products" FromRole="YourAmount" ToRole="Products" />
     <NavigationProperty Name="RegisteredUser" Relationship="Self.FK_YourAmount_RegisteredUser" FromRole="YourAmount" ToRole="RegisteredUser" />
   </EntityType>
-  <EntityType Name="YourAmount1">
-    <Key>
-      <PropertyRef Name="AmountId" />
-    </Key>
-    <Property Name="YourAmount" Type="Double" Nullable="false" />
-    <Property Name="AmountId" Type="Int32" Nullable="false" />
-    <Property Name="ImageId" Type="Int32" Nullable="false" />
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_YourAmounts_Products" FromRole="YourAmounts" ToRole="Products" />
-    <NavigationProperty Name="RegisteredUser" Relationship="Self.FK_YourAmounts_RegisteredUser" FromRole="YourAmounts" ToRole="RegisteredUser" />
-  </EntityType>
-  <Association Name="FK_AspNetUserRoles_AspNetRoles">
-    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_AspNetUserClaims_AspNetUsers">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
     <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
@@ -189,18 +160,6 @@
       <Dependent Role="AspNetUserRoles1">
         <PropertyRef Name="UserId" />
         <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles_AspNetUsers">
-    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -252,18 +211,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_YourAmounts_Products">
-    <End Role="Products" Type="Self.Product" Multiplicity="1" />
-    <End Role="YourAmounts" Type="Self.YourAmount1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="ImageId" />
-      </Principal>
-      <Dependent Role="YourAmounts">
-        <PropertyRef Name="ImageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_YourAmount_RegisteredUser">
     <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
     <End Role="YourAmount" Type="Self.YourAmount" Multiplicity="*" />
@@ -272,18 +219,6 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="YourAmount">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_YourAmounts_RegisteredUser">
-    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="1" />
-    <End Role="YourAmounts" Type="Self.YourAmount1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RegisteredUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="YourAmounts">
         <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
@@ -299,11 +234,6 @@
     <EntitySet Name="RegisteredUsers" EntityType="Self.RegisteredUser" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="YourAmounts" EntityType="Self.YourAmount" />
-    <EntitySet Name="YourAmounts1" EntityType="Self.YourAmount1" />
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="Self.FK_AspNetUserRoles_AspNetRoles">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
     <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers" Association="Self.FK_AspNetUserClaims_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -315,10 +245,6 @@
     <AssociationSet Name="FK_AspNetUserRoles_AspNetUserRoles" Association="Self.FK_AspNetUserRoles_AspNetUserRoles">
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
       <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="Self.FK_AspNetUserRoles_AspNetUsers">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
     </AssociationSet>
     <AssociationSet Name="FK_AspNetUserRoles_RegisteredUser" Association="Self.FK_AspNetUserRoles_RegisteredUser">
       <End Role="RegisteredUser" EntitySet="RegisteredUsers" />
@@ -336,17 +262,9 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="YourAmount" EntitySet="YourAmounts" />
     </AssociationSet>
-    <AssociationSet Name="FK_YourAmounts_Products" Association="Self.FK_YourAmounts_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="YourAmounts" EntitySet="YourAmounts1" />
-    </AssociationSet>
     <AssociationSet Name="FK_YourAmount_RegisteredUser" Association="Self.FK_YourAmount_RegisteredUser">
       <End Role="RegisteredUser" EntitySet="RegisteredUsers" />
       <End Role="YourAmount" EntitySet="YourAmounts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_YourAmounts_RegisteredUser" Association="Self.FK_YourAmounts_RegisteredUser">
-      <End Role="RegisteredUser" EntitySet="RegisteredUsers" />
-      <End Role="YourAmounts" EntitySet="YourAmounts1" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
