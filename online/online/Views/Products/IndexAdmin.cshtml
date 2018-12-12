@@ -1,58 +1,57 @@
-﻿
-@model IEnumerable<online.Product>
-
+﻿@model IEnumerable<online.Product>
 @{
-    ViewBag.Title = "Index";
-   
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+
 
 <h2></h2>
 <hr />
-<br />
+
 <div>
-   
+
 
 
     <section class="slide1">
         <div class="wrap-slick1">
             <div class="slick1">
                 @*<div class="item-slick1 item1-slick1" style="background-image: url(../images/Bandeau_E-shop_-_Cre_oles.jpg);">
-                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                        <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-                            Online Auction
-                        </span>
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                            <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+                                Online Auction
+                            </span>
 
-                        <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                            New Products
-                        </h2>
+                            <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+                                New Products
+                            </h2>
 
-                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-                             Button 
-                            <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                                Log In Now
-                            </a>
+                            <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+                                 Button
+                                <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                    Log In Now
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>*@
+                    </div>*@
 
                 @*<div class="item-slick1 item2-slick1" style="background-image: url(images/hero_door_banner_mgws2.jpg);">
-                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                        <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-                            Online Auction
-                        </span>
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                            <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
+                                Online Auction
+                            </span>
 
-                        <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                            New Products
-                        </h2>
+                            <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
+                                New Products
+                            </h2>
 
-                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-                             Button 
-                            <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                                Log In Now
-                            </a>
+                            <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
+                                 Button
+                                <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                    Log In Now
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>*@
+                    </div>*@
 
                 <div class="item-slick1 item3-slick1" style="background-image: url(../images/1.jpg);">
                     <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
@@ -68,7 +67,7 @@
                         </h2>
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
-                             Button 
+                            Button
                             <a href="login.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
                                 Log In Now
                             </a>
@@ -86,7 +85,7 @@
         <h3 class="m-text5 t-center">
             Featured Products
         </h3>
-    </div>           
+    </div>
     <div class="row">
         @foreach (var item in Model)
         {
@@ -112,3 +111,6 @@
         @Html.ActionLink("Back to List", "Index")
     </p>
 </div>
+
+
+

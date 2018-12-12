@@ -26,8 +26,9 @@ namespace online.Models
         [Display(Name = "Bid Amount")]
         public double BidAmount { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="This Field Is Required")]
         [Display(Name = "Auction Date")]
+        [DataType(DataType.Date)]
         public System.DateTime AuctionDate { get; set; }
 
         [Required]

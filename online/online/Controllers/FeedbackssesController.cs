@@ -51,19 +51,19 @@ namespace online.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Subject,Description, FK_ID")] Feedbackss feedbackss)
         {
-			//Feedbackss fb = new Feedbackss();
+			Feedbackss fb = new Feedbackss();
 			
 			
 			if (ModelState.IsValid)
             {
-				/**
+                fb.ID = feedbackss.ID;
 				fb.Description = feedbackss.Description;
 				fb.Subject = feedbackss.Subject;
-	**/
-				//feedbackss.FK_ID = User.Identity.GetUserId();
+
+                feedbackss.FK_ID = 12;
 				db.Feedbacksses.Add(feedbackss);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyProducts","Registerss");
             }
 
             //ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
@@ -95,12 +95,13 @@ namespace online.Controllers
         {
             if (ModelState.IsValid)
             {
+                feedbackss.FK_ID = 12345;
 				//feedbackss.FK_ID = User.Identity.GetUserId();
                 db.Entry(feedbackss).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", feedbackss.FK_ID);
+            //ViewBag.FK_ID = new SelectList(db.RegisteredUsers, "Id", feedbackss.FK_ID);
             return View(feedbackss);
         }
 

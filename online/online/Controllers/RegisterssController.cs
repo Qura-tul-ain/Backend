@@ -15,7 +15,8 @@ namespace online.Controllers
 {
     public class RegisterssController : Controller
     {
-        int ii = 3;
+        int ii = 12;
+        int myid;
         string connectionstring = @"Data Source=DESKTOP-G0K5DQK;Initial Catalog=online;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
         private object db;
         private onlineEntities dbb = new onlineEntities();
@@ -88,22 +89,29 @@ namespace online.Controllers
         public ActionResult Login(LoginViewModel model)
         {
             int i = 1;
+            int j = 0;
             onlineEntities db = new onlineEntities();
             try
             {
                 RegisteredUser o = new RegisteredUser();
-                foreach(var a in db.RegisteredUsers)
+                foreach (var a in db.RegisteredUsers)
                 {
-                    if(a.Email == model.Email && a.Password==model.Password)
+                    if (a.Email == model.Email && a.Password == model.Password)
                     {
                         i = 0;
-                        ViewBag.id = a.Id;
+                        myid = a.Id;
+                        if(a.Id==3)
+                        {
+                            return RedirectToAction("IndexAdmin", "Products");
+                        }
+
+                      
                     }
                 }
                 if(i==0)
                 {
                    
-                    return RedirectToAction("Index", "Products");
+                    return RedirectToAction("Index2", "Products");
                 }
                 else
                 {
@@ -116,6 +124,24 @@ namespace online.Controllers
                 return View(model);
             }
         }
+
+
+        public ActionResult MyProducts()
+        {
+            List<Product> pro = new List<Product>();
+            RegisteredUser o = new RegisteredUser();
+            o.Id = 12;
+            foreach (var a in dbb.Products)
+            {
+                if (o.Id == a.Id)
+                {
+                    pro.Add(a);
+                }
+            }
+            return View(pro);
+        }
+
+
 
         // GET: Register/Edit/5
         public ActionResult Edit(string id)

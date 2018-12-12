@@ -22,8 +22,8 @@ namespace online.Controllers
             RegisteredUser obj = new RegisteredUser();
             List<YourAmount> pro = new List<YourAmount>();
             List<Product> pro1 = new List<Product>();
-            obj.Id = 1;
-            if(obj.Id==1)
+            obj.Id = 12;
+            if(obj.Id==12)
             {
                 foreach(var a in db.YourAmounts)
                 {
@@ -52,20 +52,7 @@ namespace online.Controllers
             return View(o);
         }
 
-        public ActionResult MyProducts()
-        {
-            List<Product> pro = new List<Product>();
-            RegisteredUser o = new RegisteredUser();
-            o.Id = ViewBag.id;
-            foreach (var a in db.Products)
-            {
-                if (o.Id == a.Id)
-                {
-                    pro.Add(a);
-                }
-            }
-            return View(pro);
-        }
+      
 
 
         // GET: RegisteredUsers/Details/5

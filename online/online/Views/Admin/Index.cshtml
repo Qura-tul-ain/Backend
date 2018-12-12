@@ -1,6 +1,7 @@
 ﻿@model online.AspNetUser
 
 @{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
     ViewBag.Title = "Index";
     onlineEntities db = new onlineEntities();
     List<RegisteredUser> lists = new List<RegisteredUser>();

@@ -32,6 +32,35 @@ namespace online.Controllers
 
         }
 
+        // GET: Products
+        public ActionResult Index2()
+        {
+            //    Product p = new Product();
+            //    using (onlineEntities2 db = new onlineEntities2())
+            //    {
+            //        p = db.Products.Where(x=>x.ImageId==id).FirstOrDefault();
+            //    }
+            //    return View(p);
+            List<Product> lists = new List<Product>();
+            lists = db.Products.ToList();
+            return View(lists);
+
+        }
+
+        // GET: Products
+        public ActionResult IndexAdmin()
+        {
+            //    Product p = new Product();
+            //    using (onlineEntities2 db = new onlineEntities2())
+            //    {
+            //        p = db.Products.Where(x=>x.ImageId==id).FirstOrDefault();
+            //    }
+            //    return View(p);
+            List<Product> lists = new List<Product>();
+            lists = db.Products.ToList();
+            return View(lists);
+
+        }
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)
@@ -88,7 +117,7 @@ namespace online.Controllers
                     p.Category = productss.Category;
                     p.BidAmount = productss.BidAmount;
                     p.AuctionDate = productss.AuctionDate;
-                    p.Id = 12345;
+                    p.Id = 12;
 
                     db.Products.Add(p);
                     db.SaveChanges();
@@ -102,7 +131,7 @@ namespace online.Controllers
             }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Successful";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
@@ -270,9 +299,10 @@ namespace online.Controllers
                         //YourAmount obj = new YourAmount();
                         obj.YourAmount1 = collection.amount;
                         obj.ImageId = collection.ImageId;
-                        obj.Id = ViewBag.id;
+                        obj.Id = 12;
                         db.YourAmounts.Add(obj);
                         db.SaveChanges();
+                        return RedirectToAction("MyProducts","Registerss");
                     }
                     else
                     {

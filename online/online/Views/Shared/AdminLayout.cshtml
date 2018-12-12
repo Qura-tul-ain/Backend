@@ -109,11 +109,13 @@
 
 
                             <li>
-                                <a href="about.html">About</a>
+                                @Html.ActionLink("About", "About", "Home")
+                                @*<a href="about.html">About</a>*@
                             </li>
 
                             <li>
-                                <a href="contact.html">Contact</a>
+                                @Html.ActionLink("Contact", "Contact", "Home")
+                                @*<a href="contact.html">Contact</a>*@
                             </li>
 
                             <li>
@@ -143,6 +145,11 @@
                                 @Html.ActionLink("All customers", "Index", "Admin")
 
                             </li>
+                            <li>
+                                @Html.ActionLink("All products", "Allproducts", "Admin")
+
+                            </li>
+                           
                             @*<li>
                                 @Html.ActionLink("MyProducts", "MyProducts", "RegisteredUsers")
 
@@ -399,27 +406,31 @@
 
                 <ul>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        @Html.ActionLink("Art", "DisplayArt", "Products")
+                        @*<a href="#" class="s-text7">
                             Art
-                        </a>
+                        </a>*@
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        @Html.ActionLink("cars", "Displaycars", "Products")
+                        @*<a href="#" class="s-text7">
                             Furniture
-                        </a>
+                        </a>*@
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        @Html.ActionLink("Houses", "Displayhouses", "Products")
+                        @*<a href="#" class="s-text7">
                             Houses
-                        </a>
+                        </a>*@
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        @Html.ActionLink("Fashion", "DisplayFashion", "Products")
+                        @*<a href="#" class="s-text7">
                             Jewellery
-                        </a>
+                        </a>*@
                     </li>
                 </ul>
             </div>
@@ -431,15 +442,17 @@
 
                 <ul>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        @Html.ActionLink("Contact Us", "Contact", "Home")
+                        @*<a href="#" class="s-text7">
                             Contact Us
-                        </a>
+                        </a>*@
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        @Html.ActionLink("About", "About", "Home")
+                        @*<a href="#" class="s-text7">
                             About Us
-                        </a>
+                        </a>*@
                     </li>
 
                     <li class="p-b-9">
